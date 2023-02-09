@@ -50,3 +50,7 @@ print(f"Unique words: {unique_words}") # Something happens!!
 
 unique_words.remove("grass")
 print(f"Unique words: {unique_words}")
+
+"""
+Read more about operations such as union, intersection, etc.
+"""
