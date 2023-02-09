@@ -13,4 +13,4 @@ Computers can add, multiply, divide, and {verb}. They can also {verb1} better th
 a human. Some computers are {part_of_body}. Others have a/an {adjective} screen that \
 shows all kinds of {plural_noun1} and {adjective1} figures.    "
 
-print(madlibs)
+print(madlib)
