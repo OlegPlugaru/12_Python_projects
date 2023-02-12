@@ -25,49 +25,49 @@ class Box:
     def __eq__(self, other: object) -> bool:
         """Checks if two Boxes are equal"""
         if not isinstance(other, Box):
-            raise NotImplementedError
+            raise NotImplemented
         return self.side_a == other.side_b and self.side_b == other.side_b
     
     def __lt__(self, other: object) -> bool:
         """Checks if the  other box is smaller"""
         if not isinstance(other, Box):
-            raise NotImplementedError
+            raise NotImplemented
         return self.area < other.area
     
     def __le__(self, other: object) -> bool:
         """Checks if the box is smaller or equal to"""
         if not isinstance(other, Box):
-            raise NotImplementedError
+            raise NotImplemented
         return self.area <= other.area
     
     def __add__(self, other: object) -> int:
         """Adds two boxes"""
         if not isinstance(other, Box):
-            raise NotImplementedError
+            raise NotImplemented
         return self.area + other.area
     
     def __sub__(self, other: object) -> int:
         """Substracts two boxes"""
         if not isinstance(other, Box):
-            raise NotImplementedError
+            raise NotImplemented
         return self.area - other.area
     
     def __mul__(self, other: object) -> int:
         """Multiplies two boxes"""
         if not isinstance(other, Box):
-            raise NotImplementedError
+            raise NotImplemented
         return self.area * other.area    
     
     def __truediv__(self, other: object) -> float:
         "True Division boxes"
         if not isinstance(other, Box):
-            raise NotImplementedError
+            raise NotImplemented
         return self.area / other.area
     
     def __floordiv__(self, other: object) -> int:
         "Floor Division boxes"
         if not isinstance(other, Box):
-            raise NotImplementedError
+            raise NotImplemented
         return self.area // other.area
 
     
