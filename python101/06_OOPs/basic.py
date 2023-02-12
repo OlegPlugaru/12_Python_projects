@@ -54,11 +54,24 @@ class Person:
     def __str__(self) -> str:
         """This magic method provides string representation of an instance."""
         return f"Person: {self.first_name} {self.last_name}"
+    
+    def greet(self) -> None:
+        """Method that prints a greeting message"""
+        print(f"{self.first_name} says Hello!")
 
 # Create an 'instance' of class/type 'Person'   
 p1 = Person("Louis", "Zappa")
 p2 = Person("Cece", "Neutron")
 print(p1)
 print(p2)
-print(p1.first_name)
-print(p2.first_name)
+
+# Both are different instances of the same class at different memory location
+print(f"p1 is located at memory address: {hex(id(p1))}")
+print(f"p2 is located at memory address: {hex(id(p2))}")
+
+# Possible but not recomended
+print(p1.__str__())
+
+# Calling methods on particular instances
+p1.greet()
+p2.greet()
