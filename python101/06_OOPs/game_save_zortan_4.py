@@ -161,7 +161,7 @@ def simulate_attack(attack_num: int, superhero: SuperHero, villain: Villain) -> 
     )
 
     # Actual attack
-    Life.dec_hero_life(superhero.attack_power)
+    Life.dec_hero_life(villain.attack_power)
     Life.dec_villain_life(superhero.attack_power)
 
 # -------------------------------------- Final Game Status ----------------------------------------------
