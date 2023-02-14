@@ -10,19 +10,19 @@ class VillainModel:
             name.append(villain.name)
         return f"{name}"
     
-def _get_all_villains(self) -> list[Villain]:
-    thanos = Villain(name="Thanos", attack_power=400, life=1500)
-    redskull = Villain(name="Redskull", attack_power=300, life=800)
-    proxima = Villain(name="Proxima", attack_power=320, life=800)
+    def _get_all_villains(self) -> list[Villain]:
+        thanos = Villain(name="Thanos", attack_power=400, life=1500)
+        redskull = Villain(name="Redskull", attack_power=300, life=800)
+        proxima = Villain(name="Proxima", attack_power=320, life=800)
 
-    # Super Villains
-    villains: list[Villain] = [thanos, redskull, proxima]
-    return villains
+        # Super Villains
+        villains: list[Villain] = [thanos, redskull, proxima]
+        return villains
 
-def get_villain(self, index: int) -> Villain | None:
-    """Return villain from the given index."""
+    def get_villain(self, index: int) -> Villain | None:
+        """Return villain from the given index."""
 
-    if index < len(self.all):
-        return self.all[index]
-    else:
-        return None
+        if index < len(self.all):
+            return self.all[index]
+        else:
+            return None

@@ -1,6 +1,8 @@
-from typing import Final
+from __future__ import annotations
+
 from random import randint
 
+from .constants import NUM_ATTAKS, WIN_MSG, LOST_MSG
 from .models.superheros import SuperheroModel
 from .models.villains import VillainModel
 from .schemas.player import Player
@@ -13,8 +15,8 @@ class Game:
     def __init__(self, player: Player) -> None:
         self.player = player
         self.state = GameState.INITIALIZING
-        self.superheros = SuperheroModel
-        self.villains = VillainModel
+        self.superheros = SuperheroModel()
+        self.villains = VillainModel()
     
     def __repr__(self) -> str:
         return "<class 'Game'>"
@@ -26,17 +28,17 @@ class Game:
 
     # -------------------------------------- Main Logic ------------------------------------
 
-    def attack(self) -> None:
+    def attack(self) -> Game:
         """Start the attack"""
         self.state = GameState.IN_PROGRESS
         print("Starting attack...")
         print(self.state)
         
         # Attack
-        for attack_num in range(3):
+        for attack_num in range(NUM_ATTAKS):
             # each iteration get a new hero & villain
-            hero_index = randint(0, 3)
-            villain_index = randint(0, 2)
+            hero_index = randint(0, len(self.superheros.all) - 1)
+            villain_index = randint(0, len(self.villains.all)- 1)
 
             current_superhero = self.superheros.get_superhero(hero_index)
             current_villain = self.villains.get_villain(villain_index)
@@ -45,6 +47,8 @@ class Game:
                 self.__do_attack(attack_num, current_superhero, current_villain)
             else:
                 print("Error! No superheros or villains to fight.")
+        
+        return self
 
     def __do_attack(self, attack_num: int, superhero: SuperHero, villain: Villain) -> None:
         """Simulate the actual attack"""
@@ -63,19 +67,19 @@ class Game:
 
     #------------------------------------ Final Game Status --------------------------------------
 
-    def win_or_loose(self) -> None:
+    def win_or_loose(self) -> Game:
         """Determine if Avengers won or lost"""
-
-        # declare helper messages
-        WIN_MSG: Final[str] = "You succesfully saved Zortan!!!"
-        LOST_MSG: Final[str] = "Thanos killed Avengers and captured Zortan!!!"
-
+       
         # Print a nice separating line
         print("=" * 58)
 
         # Win or Loose
         if Life.hero_life >= Life.villain_life:
+            self.state = GameState.WIN
             print(WIN_MSG)
         else:
+            self.state = GameState.LOST
             print(LOST_MSG)
+        
+        return self
 
