@@ -48,22 +48,22 @@ if __name__=='__main__':
 
     lenght = 70000
     # build a sorted list of length 1000
-    sorted_list = set()
-    while len(sorted_list) < lenght:
-        sorted_list.add(random.randint(-3*lenght, 3*lenght))
-    sorted_list = sorted(list(sorted_list))
+    list_sorted = set()
+    while len(list_sorted) < lenght:
+        list_sorted.add(random.randint(-3*lenght, 3*lenght))
+    list_sorted = sorted(list(list_sorted))
 
     start = time.time()
-    for target in sorted_list:
-        naive_search(sorted_list, target)
+    for target in list_sorted:
+        naive_search(list_sorted, target)
     end = time.time()
     naiv_time = (end - start) / lenght
     print("Naive search time: ", naiv_time, "seconds" )
     print("Naive serch time: ", naiv_time * 60, "minutes")
 
     start = time.time()
-    for target in sorted_list:
-        binary_search(sorted_list, target)
+    for target in list_sorted:
+        binary_search(list_sorted, target)
     end = time.time()
     bin_time = (end - start) / lenght
     print("Binary search time: ", bin_time, "seconds")
